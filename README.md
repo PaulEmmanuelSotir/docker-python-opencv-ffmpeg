@@ -4,11 +4,9 @@ Forked from https://github.com/Valian/docker-python-opencv-ffmpeg (updated Ubunt
 
 # Versions
 
-`:latest` Python 2.7, OpenCV 3.2, ffmpeg, Ubuntu 16.04  
 `:py3` Python 3.6, OpenCV 3.4, ffmpeg, Ubuntu 18.04  
-`:cuda` Python 2.7, OpenCV 3.2, ffmpeg with CUDA support, Ubuntu 16.04  
-`:cuda-py3` Python 3.5, OpenCV 3.2, ffmpeg with CUDA support, Ubuntu 16.04  
-
+`:cuda-py3` Python 3.6, OpenCV 3.4, ffmpeg with CUDA 9.1 and cuDNN support, Ubuntu 18.04  
+See https://hub.docker.com/r/valian/docker-python-opencv-ffmpeg/ for Python 2.7 versions  
 
 # Build
 You can build it on your own

@@ -5,11 +5,11 @@ LABEL maintainer "paul-emmanuel@outlook.com"
 ENV PYTHON_VERSION 3.6
 
 # Install all dependencies for OpenCV 3.4
-RUN echo "deb http://security.ubuntu.com/ubuntu xenial-security main" | tee -a /etc/apt/sources.list && apt-get -y update \
+RUN echo "deb http://security.ubuntu.com/ubuntu xenial-security main" | tee -a /etc/apt/sources.list && apt-get -y -qq update \
     && apt-get -y install python$PYTHON_VERSION-dev wget unzip \
     build-essential cmake git pkg-config libatlas-base-dev gfortran \
     libjasper-dev libgtk2.0-dev libavcodec-dev libavformat-dev \
-    libswscale-dev libjpeg-dev libpng-dev libtiff-dev libjasper-dev libv4l-dev ffmpeg \
+    libswscale-dev libjpeg-dev libpng-dev libtiff-dev libjasper-dev libv4l-dev \
     && wget https://bootstrap.pypa.io/get-pip.py && python3 get-pip.py && pip3 install numpy && rm get-pip.py \
     && wget https://github.com/Itseez/opencv/archive/3.4.0.zip -O opencv3.zip \
     && unzip -q opencv3.zip && mv /opencv-3.4.0 /opencv && rm opencv3.zip \
@@ -37,6 +37,9 @@ RUN echo "deb http://security.ubuntu.com/ubuntu xenial-security main" | tee -a /
     libswscale-dev libjpeg-dev libpng-dev libtiff-dev libjasper-dev libv4l-dev \
     && apt-get clean \
     && rm -rf /opencv /opencv_contrib /var/lib/apt/lists/*
+
+# Install ffmpeg runtime
+RUN apt-get -y -qq update && apt-get -y install ffmpeg
 
 # Define default command.
 CMD ["python3"]
